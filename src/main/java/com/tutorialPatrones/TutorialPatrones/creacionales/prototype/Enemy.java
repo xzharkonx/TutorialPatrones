@@ -1,17 +1,28 @@
 package com.tutorialPatrones.TutorialPatrones.creacionales.prototype;
 
-public class Enemy {
-	private int healt;
-	private int damage;
+public abstract class Enemy {
+	protected int healt;
+	protected int damage;
 	
 	public Enemy() {
 		super();
 	}
+	
 	public Enemy(int healt, int damage) {
 		super();
 		this.healt = healt;
 		this.damage = damage;
 	}
+	
+	public Enemy(Enemy enemy) {
+		if(enemy != null) {
+			setHealt(enemy.getHealt());
+			setDamage(enemy.getDamage());
+		}
+	}
+	
+	public abstract Enemy clone();
+	
 	
 	public int getHealt() {
 		return healt;
